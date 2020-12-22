@@ -18,9 +18,9 @@ constructor() {
      response.json().then(function(data) {
 
         let fetchedSatellites = data.satellites;
-        // TODO: loop over satellites
+        // loop over satellites
         for (let i in fetchedSatellites) {
-          // TODO: create a Satellite object using new Satellite(fetchedSatellites[i].name, fetchedSatellites[i].type, fetchedSatellites[i].launchDate, fetchedSatellites[i].orbitType, fetchedSatellites[i].operational);
+          // create a Satellite object using new Satellite(fetchedSatellites[i].name, fetchedSatellites[i].type, fetchedSatellites[i].launchDate, fetchedSatellites[i].orbitType, fetchedSatellites[i].operational);
           let satellite = {
             name:fetchedSatellites[i].name,
             type:fetchedSatellites[i].type,
@@ -28,7 +28,7 @@ constructor() {
             orbitType:fetchedSatellites[i].orbitType,
             operational:fetchedSatellites[i].operational
           };
-          // TODO: add the new Satellite object to sourceList using: this.sourceList.push(satellite);
+          // add the new Satellite object to sourceList using: this.sourceList.push(satellite);
           this.sourceList.push(satellite);
         }
 
