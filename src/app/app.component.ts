@@ -8,8 +8,8 @@ import { Satellite } from './satellite';
 })
 export class AppComponent {
   title = 'orbit-report';
-
 sourceList: Satellite[];
+
 constructor() {
   this.sourceList = [];
   let satellitesUrl = 'https://handlers.education.launchcode.org/static/satellites.json';
@@ -19,21 +19,23 @@ constructor() {
 
         let fetchedSatellites = data.satellites;
         // loop over satellites
-        for (let i in fetchedSatellites) {
+        for (let i=0; i<fetchedSatellites.length; i++) {
           // create a Satellite object using new Satellite(fetchedSatellites[i].name, fetchedSatellites[i].type, fetchedSatellites[i].launchDate, fetchedSatellites[i].orbitType, fetchedSatellites[i].operational);
-          let satellite = {
-            name:fetchedSatellites[i].name,
-            type:fetchedSatellites[i].type,
-            launchDate:fetchedSatellites[i].launchDate,
-            orbitType:fetchedSatellites[i].orbitType,
-            operational:fetchedSatellites[i].operational
-          };
+          let satellite = new Satellite(
+            fetchedSatellites[i].name,
+            fetchedSatellites[i].type,
+            fetchedSatellites[i].launchDate,
+            fetchedSatellites[i].orbitType,
+            fetchedSatellites[i].operational);
+          
           // add the new Satellite object to sourceList using: this.sourceList.push(satellite);
           this.sourceList.push(satellite);
         }
+      
 
      }.bind(this));
   }.bind(this));
 
 }
 }
+
